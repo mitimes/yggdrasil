@@ -1,0 +1,49 @@
+logstash:
+  image: logstash
+  command: logstash -f /etc/logstash/conf.d/logstash.conf
+  links:
+    - elasticsearch
+  volumes:
+    - ./conf/logstash:/etc/logstash/conf.d
+  ports:
+    - "5000:5000"
+kibana:
+  ports:
+    - "5601:5601"
+  image: kibana:4.1
+  links:
+    - elasticsearch
+mailcatcher:
+  image: schickling/mailcatcher
+  ports:
+    - "1080:1080"
+  expose:
+    - "1025"
+  volumes:
+    - ./confg/kibana:/opt/kibana/config/
+elasticsearch:
+  image: elasticsearch:1.5.2
+  command: elasticsearch -Des.network.host=0.0.0.0
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  expose:
+    - "9200"
+  volumes:
+    - /var/docker/elasticsearch:/usr/share/elasticsearch/config
+db:
+  image: mitimes/db
+  ports:
+    - "5432:5432"
+  expose:
+    - "5432"
+  volumes:
+    - /var/docker/postgres:/var/lib/postgresql/data
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
+  expose:
+    - "6379"
+  volumes:
+    - /var/docker/postgres:/data
