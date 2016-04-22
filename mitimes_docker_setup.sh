@@ -49,22 +49,22 @@ echo "export ASSETS_DIRECTORY=\"mitimes-assets\"" >> ~/sites/web/.env
 echo "export AWS_ACCESS_KEY_ID=\"${aws_secret_key_id}\"" >> ~/sites/web/.env
 echo "export AWS_SECRET_ACCESS_KEY=\"${aws_secret_key}\"" >> ~/sites/web/.env
 echo "export AWS_REGION=\"ap-southeast-2\"" >> ~/sites/web/.env
-echo "export DATABASE_PASSWORD=\"vikyepchor\"" >> ~/sites/web/.env
-echo "export DATABASE_USERNAME=\"mitimes\"" >> ~/sites/web/.env
+echo "export DATABASE_PASSWORD=\"\"" >> ~/sites/web/.env
+echo "export DATABASE_USERNAME=\"postgres\"" >> ~/sites/web/.env
 
 echo "export ASSETS_DIRECTORY=\"mitimes-assets\"" >> ~/sites/client-hub/.env
 echo "export AWS_ACCESS_KEY_ID=\"${aws_secret_key_id}\"" >> ~/sites/client-hub/.env
 echo "export AWS_SECRET_ACCESS_KEY=\"${aws_secret_key}\"" >> ~/sites/client-hub/.env
 echo "export AWS_REGION=\"ap-southeast-2\"" >> ~/sites/client-hub/.env
-echo "export DATABASE_PASSWORD=\"vikyepchor\"" >> ~/sites/client-hub/.env
-echo "export DATABASE_USERNAME=\"mitimes\"" >> ~/sites/client-hub/.env
+echo "export DATABASE_PASSWORD=\"\"" >> ~/sites/client-hub/.env
+echo "export DATABASE_USERNAME=\"postgres\"" >> ~/sites/client-hub/.env
 
 echo "export ASSETS_DIRECTORY=\"mitimes-assets\"" >> ~/sites/api/.env
 echo "export AWS_ACCESS_KEY_ID=\"${aws_secret_key_id}\"" >> ~/sites/api/.env
 echo "export AWS_SECRET_ACCESS_KEY=\"${aws_secret_key}\"" >> ~/sites/api/.env
 echo "export AWS_REGION=\"ap-southeast-2\"" >> ~/sites/api/.env
-echo "export DATABASE_PASSWORD=\"vikyepchor\"" >> ~/sites/api/.env
-echo "export DATABASE_USERNAME=\"mitimes\"" >> ~/sites/api/.env
+echo "export DATABASE_PASSWORD=\"\"" >> ~/sites/api/.env
+echo "export DATABASE_USERNAME=\"postgres\"" >> ~/sites/api/.env
 
 echo "development:" >> ~/sites/web/config/database.yml
 echo "  adapter: postgresql" >> ~/sites/web/config/database.yml
@@ -94,6 +94,7 @@ echo "  database_username: <%= ENV['DATABASE_USERNAME'] %>" >> ~/sites/web/confi
 echo "  elasticsearch_url: 'http://elasticsearch:9200/'" >> ~/sites/web/config/secrets.yml
 echo "  redis_url: <%= \"redis://redis:6379\" %>" >> ~/sites/web/config/secrets.yml
 echo "  skeleton_key: 'password'" >> ~/sites/web/config/secrets.yml
+echo "  secret_key_base: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'" >> ~/sites/web/config/secrets.yml
 
 echo "development:" >> ~/sites/client-hub/config/secrets.yml
 echo "  assets_directory: <%= ENV['ASSETS_DIRECTORY'] %>" >> ~/sites/client-hub/config/secrets.yml
@@ -105,6 +106,7 @@ echo "  database_username: <%= ENV['DATABASE_USERNAME'] %>" >> ~/sites/client-hu
 echo "  elasticsearch_url: 'http://elasticsearch:9200/'" >> ~/sites/client-hub/config/secrets.yml
 echo "  redis_url: <%= \"redis://redis:6379\" %>" >> ~/sites/client-hub/config/secrets.yml
 echo "  skeleton_key: 'password'" >> ~/sites/client-hub/config/secrets.yml
+echo "  secret_key_base: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'" >> ~/sites/client-hub/config/secrets.yml
 
 cd ~/sites && cd yggdrasil && docker-compose up -d && cd .. && cd api && docker-compose up -d && cd .. && cd web && docker-compose up -d && cd .. && cd client-hub && docker-compose up -d && cd ..
 
