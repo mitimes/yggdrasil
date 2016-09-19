@@ -20,9 +20,6 @@ cd ~/sites
 git clone https://${github_username}:${github_password}@github.com/mitimes/yggdrasil.git
 git clone https://${github_username}:${github_password}@github.com/mitimes/elasticsearch.git
 git clone https://${github_username}:${github_password}@github.com/mitimes/api.git
-cd api
-git checkout -b API-30 origin/API-30
-cd ..
 git clone https://${github_username}:${github_password}@github.com/mitimes/web.git
 git clone https://${github_username}:${github_password}@github.com/mitimes/client-hub.git
 git clone https://${github_username}:${github_password}@github.com/mitimes/docker-postgresql.git
