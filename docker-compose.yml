@@ -22,6 +22,11 @@ db:
   image: mitimes/db
   ports:
     - "5432:5432"
+  environment:
+    - POSTGRES_DB=mitimes_development
+    - POSTGRES_USER=mitimes
+  volumes:
+    - ../docker-postgresql:/data
   expose:
     - "5432"
 redis:
