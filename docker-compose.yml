@@ -1,9 +1,3 @@
-kibana:
-  ports:
-    - "5601:5601"
-  image: kibana:4.1
-  links:
-    - elasticsearch
 mailcatcher:
   image: schickling/mailcatcher
   ports:
@@ -12,7 +6,10 @@ mailcatcher:
     - "1025"
 elasticsearch:
   image: elasticsearch:1.5.2
-  command: elasticsearch -Des.network.host=0.0.0.0
+  command:
+    /scripts/elastic_search
+  volumes:
+    - ./scripts:/scripts
   ports:
     - "9200:9200"
     - "9300:9300"
