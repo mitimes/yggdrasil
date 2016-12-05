@@ -1,29 +1,20 @@
 #!/bin/bash
 
-echo Input e-mail:
-read email
-echo Input github username:
-read github_username
-echo Input github password:
-read github_password
 echo Input AWS Secret Key ID:
 read aws_secret_key_id
 echo Input AWS Secret Key:
 read aws_secret_key
 
-git config --global user.name $github_username
-git config --global user.email $email
 
 mkdir -p ~/sites
 cd ~/sites
+git clone git@github.com:mitimes/yggdrasil.git
+git clone git@github.com:mitimes/elasticsearch.git
+git clone git@github.com:mitimes/api.git
+git clone git@github.com:mitimes/web.git
+git clone git@github.com:mitimes/client-hub.git
+git clone git@github.com:mitimes/docker-postgresql.git
 
-git clone https://${github_username}:${github_password}@github.com/mitimes/yggdrasil.git
-git clone https://${github_username}:${github_password}@github.com/mitimes/elasticsearch.git
-git clone https://${github_username}:${github_password}@github.com/mitimes/api.git
-git clone https://${github_username}:${github_password}@github.com/mitimes/web.git
-git clone https://${github_username}:${github_password}@github.com/mitimes/client-hub.git
-git clone https://${github_username}:${github_password}@github.com/mitimes/docker-postgresql.git
-git clone https://${github_username}:${github_password}@github.com/mitimes/jobs.git
 
 echo "alias dc='docker-compose'" >> ~/.bash_profile
 echo "alias dcupd='dc up -d'" >> ~/.bash_profile
